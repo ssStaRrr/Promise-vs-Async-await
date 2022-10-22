@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> PROMISE And ASYNC AWAİT </p>
+
+    <img src="rainbow.png" id="rainbow" width="200" height="200" alt="">
+
+    <script>
+    
+    //ASYNC AWAIT YAPISI ILE
+      //not: async/await yapısında da errları yakalayabilmek için catch yapısı kullanılabiliyor.
+        // async function asenkronGetRainbow() {
+        //     const result = await fetch("rainbow.png")
+        //     const blobImage = await result.blob()
+        //     console.log(result)
+        //     console.log(blobImage)
+        //     document.getElementById("rainbow").src = URL.createObjectURL(blobImage)
+        // }
+        // asenkronGetRainbow()
+        // .catch(err => console.log(err))
+
+
+    // PROMISE YAPISI ILE    
+        fetch("rainbow.png")
+        .then(res => {
+            console.log(res)
+            return res.blob();
+        })
+        .then(res => {
+            console.log(res)
+            document.getElementById("rainbow").src = URL.createObjectURL(res);
+         
+        })
+        .catch(err => {
+            console.log("file could not take")
+            console.log(err)
+        })
+    </script>
+</body>
+</html>
